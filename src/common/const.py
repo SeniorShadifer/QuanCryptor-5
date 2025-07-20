@@ -1,4 +1,5 @@
 APP_NAME = "QuanCryptor"
+APP_AUTHOR = "ShadowHack"
 
 
 PACKAGE_VERSION = "5.1.0-alpha.1"

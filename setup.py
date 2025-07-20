@@ -7,7 +7,12 @@ setup(
     author="SeniorShadifer",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    install_requires=["requests==2.32.3", "termcolor==3.1.0", "cryptography==44.0.2"],
+    install_requires=[
+        "requests==2.32.3",
+        "cryptography==44.0.2",
+        "loguru==0.7.3",
+        "platformdirs==4.3.8",
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
