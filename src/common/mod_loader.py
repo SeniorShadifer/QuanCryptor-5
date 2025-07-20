@@ -32,20 +32,28 @@ def load_mod(mod_dir: str):
 def load_mods(mods_dir: str, base_mod={}):
     logger.info(f"Loading modules in directory '{mods_dir}'...")
 
-    if not os.path.exists(mods_dir) and not os.path.isdir(mods_dir):
-        raise FileNotFoundError(
-            f"Cannot load modules in '{mods_dir}': directory is not exists"
-        )
-
     data = {"base": base_mod}
-    for current_mod in os.listdir(mods_dir):
-        try:
-            logger.info(f"* Loading module '{current_mod}'...")
 
-            mod_data, name = load_mod(f"{mods_dir}/{current_mod}")
-            data[name] = mod_data
+    if not os.path.exists(mods_dir) and not os.path.isdir(mods_dir):
+        logger.info(f"Directory '{mods_dir}' is not exists. Creating...")
+        os.makedirs(mods_dir)
 
-        except Exception as e:
-            logger.error(f"* Cannot load module '{current_mod}': {e}. Ignoring.")
+    else:
+        listdir = os.listdir(mods_dir)
+        if len(listdir) > 0:
+            for current_mod in listdir:
+                try:
+                    logger.info(f"* Loading module '{current_mod}'...")
+
+                    mod_data, name = load_mod(f"{mods_dir}/{current_mod}")
+                    data[name] = mod_data
+
+                except Exception as e:
+                    logger.error(
+                        f"* Cannot load module '{current_mod}': {e}. Ignoring."
+                    )
+
+        else:
+            logger.info(f"Modules in '{mods_dir}' not founded.")
 
     return data

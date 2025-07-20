@@ -7,11 +7,14 @@ setup(
     author="SeniorShadifer",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
+    include_package_data=True,
+    package_data={"client": ["webui/dist/*", "webui/dist/*/*"]},
     install_requires=[
-        "requests==2.32.3",
         "cryptography==44.0.2",
-        "loguru==0.7.3",
         "platformdirs==4.3.8",
+        "requests==2.32.3",
+        "pywebview==5.4",
+        "loguru==0.7.3",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
