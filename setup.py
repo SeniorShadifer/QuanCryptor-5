@@ -7,10 +7,13 @@ setup(
     author="SeniorShadifer",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    install_requires=["requests==2.32.3"],
+    install_requires=["requests==2.32.3", "termcolor==3.1.0"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.6",
+    python_requires=">=3.12.0",
+    entry_points={
+        "console_scripts": ["server=server.main:main", "client=client.main:main"]
+    },
 )
