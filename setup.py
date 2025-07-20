@@ -8,7 +8,7 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     include_package_data=True,
-    package_data={"client": ["webui/dist/*", "webui/dist/*/*"]},
+    package_data={"client": ["web_gui/*", "web_gui/*/*", "web_gui/*/*/*"]},
     install_requires=[
         "cryptography==44.0.2",
         "platformdirs==4.3.8",

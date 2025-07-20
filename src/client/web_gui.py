@@ -27,9 +27,12 @@ class Api:
 
 
 def start_webview():
+    logger.info(f"Loading WebGUI...")
+
     window = webview.create_window(
         title=client.const.PACKAGE_FULLNAME,
-        url=f"{client.path.package_path}/web_ui/index.html",
+        url=f"{client.path.package_path}/web_gui/index.html",
+        js_api=Api(),
     )
 
     webview.start()

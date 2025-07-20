@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+
+    <script defer>
+      function handleError(error) {
+        console.error(error);
+        alert(`Critical JavaScript error: ${error}`);
+
+        if (typeof pywebview !== "undefined") {
+          if (typeof pywebview.api.log_error !== "undefined") {
+            pywebview.api.log_error(`Frontend error: ${error}`);
+          }
+        }
+      }
+
+      function main() {
+        pywebview.api.log_success("WebGUI loaded successfully!");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let interval = setInterval(() => {
+          try {
+            if (
+              typeof pywebview !== "undefined" &&
+              typeof pywebview.api.log_success !== "undefined"
+            ) {
+              try {
+                main();
+              } catch (error) {
+                handleError(error);
+              } finally {
+                clearInterval(interval);
+              }
+            }
+          } catch (error) {
+            handleError(error);
+          }
+        }, 25);
+      });
+    </script>
+  </body>
+</html>

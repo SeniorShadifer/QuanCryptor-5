@@ -8,7 +8,7 @@ from loguru import logger
 import client.const
 import client.mods
 import client.path
-import client.web_ui
+import client.web_gui
 from common import mod_loader
 
 
@@ -35,7 +35,7 @@ def main():
         except Exception as e:
             logger.error(f"Cannot load mods: {e}. Continuing without mods...")
 
-        client.web_ui.start_webview()
+        client.web_gui.start_webview()
 
     except Exception as e:
         traceback.print_exc()
