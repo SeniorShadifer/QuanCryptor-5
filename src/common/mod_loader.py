@@ -21,12 +21,10 @@ def load_mod(mod_dir: str):
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
 
-    if not hasattr(module, "init") or not hasattr(module, "name"):
-        raise Exception(
-            f"Module not implements module interface (functions 'init' and 'name')"
-        )
+    if not hasattr(module, "init"):
+        raise Exception(f"Module not implements module interface (function 'init')")
 
-    return module.init(), module.name()
+    return module.init()
 
 
 def load_mods(mods_dir: str, base_mod={}):
@@ -41,12 +39,19 @@ def load_mods(mods_dir: str, base_mod={}):
     else:
         listdir = os.listdir(mods_dir)
         if len(listdir) > 0:
+            index = 0
             for current_mod in listdir:
                 try:
-                    logger.info(f"* Loading module '{current_mod}'...")
+                    logger.info(
+                        f"[{++index + 1}/{len(listdir)}] Loading module '{current_mod}'..."
+                    )
 
-                    mod_data, name = load_mod(f"{mods_dir}/{current_mod}")
-                    data[name] = mod_data
+                    mod_data = load_mod(f"{mods_dir}/{current_mod}")
+
+                    if "namespace" not in mod_data:
+                        raise KeyError("Module data not contains namespace")
+
+                    data[mod_data["namespace"]] = mod_data
 
                 except Exception as e:
                     logger.error(

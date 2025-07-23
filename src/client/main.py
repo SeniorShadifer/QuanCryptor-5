@@ -29,8 +29,10 @@ def main():
 
         try:
             client.mods.data = mod_loader.load_mods(
-                f"{client.path.config_dir}/mods", client.mods.base
+                f"{client.path.config_dir}/Mods", client.mods.base
             )
+
+            logger.success(f"Modules loaded successfully.")
 
         except Exception as e:
             logger.error(f"Cannot load mods: {e}. Continuing without mods...")
