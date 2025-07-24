@@ -27,9 +27,8 @@ pywebview==5.4,
 loguru==0.7.X
 
 
-## Installing
- `
- git clone https://github.com/SeniorShadifer/QuanCryptor-5
- cd QuanCryptor-5
- pip install .
- `
+## Installing 
+`git clone https://github.com/SeniorShadifer/QuanCryptor-5`
+`cd QuanCryptor-5`
+`pip install .`
+ 
