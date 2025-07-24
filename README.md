@@ -20,8 +20,8 @@ To connect to the server, you need to have the hash of its certificate. The cert
 
 
 ## Requirements
-Python 3. 
-cryptography==44.0.2
-platformdirs==4.3.8
-pywebview==5.4
-loguru==0.7.3
+Python 3, PIP 25.X.X,
+cryptography==44.0.X,
+platformdirs==4.3.X,
+pywebview==5.4,
+loguru==0.7.X
