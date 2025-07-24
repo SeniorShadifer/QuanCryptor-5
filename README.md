@@ -28,7 +28,7 @@ loguru==0.7.X
 
 
 ## Installing 
-`git clone https://github.com/SeniorShadifer/QuanCryptor-5`
-`cd QuanCryptor-5`
+`git clone https://github.com/SeniorShadifer/QuanCryptor-5`,
+`cd QuanCryptor-5`,
 `pip install .`
  
