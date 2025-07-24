@@ -10,4 +10,5 @@ Uses AES and McEliese to hybrid and symmetric encryption. The module loader allo
 ### Module loader
 The module loader, which is built into the client and server, allows you to use third-party themes, styles, algorithms, and other features.
 
-### Client WebGUI
+### Client GUI
+The graphical web user interface is provided by the "pywebview" library. No frameworks are used for the interface.
