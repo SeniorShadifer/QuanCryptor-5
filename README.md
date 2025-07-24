@@ -12,3 +12,8 @@ The module loader, which is built into the client and server, allows you to use 
 
 ### Client GUI
 The graphical web user interface is provided by the "pywebview" library. No frameworks are used for the interface.
+
+### Client-server architecture
+The application has a client-server architecture. The servers store accounts, chats, and messages, which are encrypted on the client side. Hybrid and symmetric encryption can be used.
+
+ To connect to the server, you need to have the hash of its certificate. The certificate contains information about the algorithms used, the public key (if asymmetric encryption is used), and other data.
