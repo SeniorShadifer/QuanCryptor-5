@@ -35,6 +35,8 @@ cd QuanCryptor-5
 pip install .
 ```
 
+Then you can run client or server by this simple commands: `client [args]`, `server [args]`
+
 If you need to use virtual environment, complete this command in the root of repository:
 ``` bash
 python -m venv env
