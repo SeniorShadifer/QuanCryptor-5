@@ -25,3 +25,11 @@ cryptography==44.0.X,
 platformdirs==4.3.X,
 pywebview==5.4,
 loguru==0.7.X
+
+
+## Installing
+ `
+ git clone https://github.com/SeniorShadifer/QuanCryptor-5
+ cd QuanCryptor-5
+ pip install .
+ `
