@@ -12,7 +12,6 @@ setup(
     install_requires=[
         "cryptography==44.0.2",
         "platformdirs==4.3.8",
-        "requests==2.32.3",
         "pywebview==5.4",
         "loguru==0.7.3",
     ],
