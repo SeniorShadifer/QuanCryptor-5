@@ -17,3 +17,11 @@ The graphical web user interface is provided by the "pywebview" library. No fram
 The application has a client-server architecture. The servers store accounts, chats, and messages, which are encrypted on the client side. Hybrid and symmetric encryption can be used.
 
 To connect to the server, you need to have the hash of its certificate. The certificate contains information about the algorithms used, the public key (if asymmetric encryption is used), and other data. If symmetric encryption is used, you will need to enter a password.
+
+
+## Requirements
+Python 3. 
+cryptography==44.0.2
+platformdirs==4.3.8
+pywebview==5.4
+loguru==0.7.3
