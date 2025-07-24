@@ -27,10 +27,10 @@ def load_mod(mod_dir: str):
     return module.init()
 
 
-def load_mods(mods_dir: str, base_mod={}):
+def load_mods(mods_dir: str):
     logger.info(f"Loading modules in directory '{mods_dir}'...")
 
-    data = {"base": base_mod}
+    data = {}
 
     if not os.path.exists(mods_dir) and not os.path.isdir(mods_dir):
         logger.info(f"Directory '{mods_dir}' is not exists. Creating...")
@@ -51,7 +51,10 @@ def load_mods(mods_dir: str, base_mod={}):
                     if "namespace" not in mod_data:
                         raise KeyError("Module data not contains namespace")
 
-                    data[mod_data["namespace"]] = mod_data
+                    if mod_data["namespace"] in data:
+                        data[mod_data["namespace"]] |= mod_data
+                    else:
+                        data[mod_data["namespace"]] = mod_data
 
                 except Exception as e:
                     logger.error(
