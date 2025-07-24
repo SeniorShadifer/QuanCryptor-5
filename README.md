@@ -29,14 +29,14 @@ loguru==0.7.X
 
 ## Installing 
 To install package, complete this commands:
-```
+``` bash
 git clone https://github.com/SeniorShadifer/QuanCryptor-5
 cd QuanCryptor-5
 pip install .
 ```
 
 If you need to use virtual environment, complete this command in the root of repository:
-```
+``` bash
 python -m venv env
 
 # MacOS/Linux: source env/bin/activate
