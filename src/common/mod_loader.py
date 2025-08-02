@@ -22,13 +22,13 @@ def load_mod(mod_dir: str):
     spec.loader.exec_module(module)
 
     if not hasattr(module, "init"):
-        raise Exception(f"Module not implements module interface (function 'init')")
+        raise Exception(f"Mod not implements module interface (function 'init')")
 
     return module.init()
 
 
 def load_mods(mods_dir: str):
-    logger.info(f"Loading modules in directory '{mods_dir}'...")
+    logger.info(f"Loading mods in directory '{mods_dir}'...")
 
     data = {}
 
@@ -43,13 +43,13 @@ def load_mods(mods_dir: str):
             for current_mod in listdir:
                 try:
                     logger.info(
-                        f"[{++index + 1}/{len(listdir)}] Loading module '{current_mod}'..."
+                        f"[{++index + 1}/{len(listdir)}] Loading mod '{current_mod}'..."
                     )
 
                     mod_data = load_mod(f"{mods_dir}/{current_mod}")
 
                     if "namespace" not in mod_data:
-                        raise KeyError("Module data not contains namespace")
+                        raise KeyError("Mod data not contains namespace")
 
                     if mod_data["namespace"] in data:
                         data[mod_data["namespace"]] |= mod_data
@@ -57,11 +57,9 @@ def load_mods(mods_dir: str):
                         data[mod_data["namespace"]] = mod_data
 
                 except Exception as e:
-                    logger.error(
-                        f"* Cannot load module '{current_mod}': {e}. Ignoring."
-                    )
+                    logger.error(f"* Cannot load mod '{current_mod}': {e}. Ignoring.")
 
         else:
-            logger.info(f"Modules in '{mods_dir}' not founded.")
+            logger.info(f"Mods in '{mods_dir}' not founded.")
 
     return data

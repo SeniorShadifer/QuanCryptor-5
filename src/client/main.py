@@ -33,21 +33,19 @@ def main():
         try:
             client.mods.data |= mod_loader.load_mods(f"{client.path.config_dir}/Mods")
 
-            logger.success(f"Modules loaded successfully.")
+            logger.success(f"Mods loaded successfully.")
 
         except Exception as e:
             logger.error(f"Cannot load mods: {e}. Continuing without mods...")
 
         finally:
             logger.debug(
-                f"Current module data: \n{json.dumps(client.mods.data, indent=4, ensure_ascii=False)}"
+                f"Current mod data: \n{json.dumps(client.mods.data, indent=4, ensure_ascii=False)}"
             )
 
         client.web_gui.start_webview()
 
     except Exception as e:
         traceback.print_exc()
-        logger.critical(
-            f"Critical error: {e}."
-        )
+        logger.critical(f"Critical error: {e}.")
         sys.exit(1)

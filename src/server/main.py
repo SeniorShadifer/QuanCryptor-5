@@ -33,14 +33,14 @@ def main():
                 f"{server.path.SERVER_DATA_PATH}/Mods"
             )
 
-            logger.success(f"Modules loaded successfully.")
+            logger.success(f"Mods loaded successfully.")
 
         except Exception as e:
             logger.error(f"Cannot load mods: {e}. Continuing without mods...")
 
         finally:
             logger.debug(
-                f"Current module data: \n{json.dumps(server.mods.data, indent=4, ensure_ascii=False)}"
+                f"Current mod data: \n{json.dumps(server.mods.data, indent=4, ensure_ascii=False)}"
             )
     except Exception as e:
         traceback.print_exc()
