@@ -1,6 +1,6 @@
 import unittest
 
-import src.common.crypto
+import src.common.crypto_utils
 
 
 class TestHashDataFunction(unittest.TestCase):
@@ -11,5 +11,5 @@ class TestHashDataFunction(unittest.TestCase):
 
         self.assertEqual(
             hex_result,
-            src.common.crypto.hash_data(input.encode()).hex(),
+            src.common.crypto_utils.hash_data(input.encode()).hex(),
         )
