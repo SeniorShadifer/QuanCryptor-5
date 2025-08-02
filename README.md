@@ -24,7 +24,8 @@ Python 3, PIP 25.X.X,
 cryptography==44.0.X,
 platformdirs==4.3.X,
 pywebview==5.4,
-loguru==0.7.X
+loguru==0.7.X,
+pyqzmq==27.0.0
 
 
 ## Installing 
